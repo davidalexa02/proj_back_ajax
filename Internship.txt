@@ -1,0 +1,78 @@
+
+Backend:
+
+1. În Laravel:
+
+Please build a Demo locally on your machine using Laravel and Bootstrap following those guidelines:
+
+DONE - Build a registration page where the required fields are the email address and the password
+
+DONE - Build a login page where the login takes place with an email and password inputs
+
+DONE - Below section to be password protected by username and password (from register and login)
+
+DONE - With the help of the Laravel framework do CRUD operations for items belonging in at least two db tables, with one-to-many or many-to-many relationship between them (e.g. products and categories);
+
+- In the listing table use ajax to do some action in place, without page reload, e.g. delete records -https://i.imgur.com/cMtZsD2.png; an easy example : https://i.imgur.com/cll8Xle.png
+ 
+DONE - Use Bootstrap components for the HTML structure part.
+
+DONE Please take count on field validations where needed / necessary. 
+
+Please send the project in zip or share it on github, please use a repo for this.
+
+
+Frontend:
+
+2. PSD to web-page / plain / html / css / javascript / PHP:
+
+
+The page needs to be developed with the following sections:
+
+DONE - The header
+
+DONE - Footer
+
+DONE - All sections from the page to be implemented
+
+DONE - In addition you will need to build a contact form in the page with the following inputs:
+
+DONE - Name
+
+DONE - Email
+
+DONE - Phone
+
+DONE - Mesage
+
+DONE - Do you want to subscribe to our newsletter?
+
+DONE - How do you want to be contacted?
+
+DONE - Please attach your CV / resume in PDF format
+
+
+The page needs the following functionality:
+
+DONE - Contact form with Email Sending functionality 
+
+DONE - Animations when loading the content / images / text
+
+
+The page needs to be fully responsive:
+
+DONE - Desktop
+
+DONE - Mobile
+
+DONE - Tablet
+
+
+PSD:  http://s.go.ro/dzuk8i3t  |  password: 221715 
+
+DONE Please send the project in zip or share it on github, please use a repo for this.
+
+
+
+
+

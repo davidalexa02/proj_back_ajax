@@ -11,22 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        if ($request->ajax()) {
-            $tasks = Task::all();
-            return datatables()->of($tasks)
-                ->addColumn('action', function ($row) {
-                    $html = '<a href="#" class="btn btn-xs btn-secondary btn-edit">Edit</a> ';
-                    $html .= '<button data-rowid="' . $row->id . '" class="btn btn-xs btn-danger btn-delete">Del</button>';
-                    return $html;
-                })->toJson();
-        }
+        $tasks = Task::all();
 
-        return view('tasks.index');
-
+        return view('tasks.index', compact('tasks'));
     }
 
     public function create()
@@ -40,37 +31,37 @@ class TaskController extends Controller
     {
         Task::create($request->validated());
 
-        return view('tasks.index');
+        return redirect()->route('tasks.index');
     }
 
-    public function show()
+    public function show(Task $task)
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return;
+        return view('tasks.show', compact('task'));
     }
 
-    public function edit()
+    public function edit(Task $task)
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return;
+        return view('tasks.edit', compact('task'));
     }
 
-    public function update(UpdateTaskRequest $request,$id)
+    public function update(UpdateTaskRequest $request, Task $task)
     {
-        $row = Task::find($id);
+        $row = Task::find($task->id);
         $row->update($request->validated());
 
-        return ['success' => true, 'message' => 'Updated Successfully'];
+        return redirect()->route('tasks.index');
     }
 
-    public function destroy($id)
+    public function destroy(Task $task)
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        Task::find($id)->delete();
-        return ['success' => true, 'message' => 'Deleted Successfully'];
-        // return ['success' => true, 'message'=> 'Deleted successfully'];
+        $task->delete();
+
+        return redirect()->route('tasks.index');
     }
 }
